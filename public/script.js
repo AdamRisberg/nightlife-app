@@ -192,7 +192,10 @@
     var span = contentDiv.lastElementChild;
 
     if (!loggedIn) {
-      return console.log("Not logged in");
+      switchModal(true);
+      dom.modal.className = "modal modal-visible";
+      modalOpen = true;
+      return;
     }
 
     axios.post("/places", { yelpId: id, placeId: placeId, going: going })
