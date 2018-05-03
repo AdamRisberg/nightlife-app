@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Nightlife App</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-content wrapper clearfix">
+      <h1 class="brand">Nightlife App</h1>
+      <nav class="main-nav">
+        <span class="logged-in"></span>
+        <span id="login" class="nav-item nav-visible">Login</span>
+        <span id="register" class="nav-item nav-visible">Register</span>
+        <span id="logout" class="nav-item">Logout</span>
+      </nav>
+      <div class="search-box clearfix">
+        <input type="text" class="search-input" placeholder="Enter your zipcode" />
+        <button class="search-btn">Search</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="background"></div>
+
+  <div class="greeting greeting-visible">
+    <h2>Welcome to Nightlife App</h2>
+    <p>See what bars members are going to in your area. Just enter your zipcode in the search box above. Create an account if
+      you'd like to schedule your own appearances.</p>
+  </div>
+
+  <div id="places" class="wrapper" data-loggedin="<%= loggedIn %>" data-username="<%= username %>"></div>
+
+  <div class="modal">
+    <div class="modal-content clearfix">
+      <h2 class="modal-title">Login</h2>
+      <p class="modal-info">Incorrect username or password</p>
+      <div class="form-inputs clearfix">
+        <label class="form-label" for="username">Username</label>
+        <input id="username" type="text" class="form-input" />
+        <label class="form-label" for="password">Password</label>
+        <input id="password" type="password" class="form-input" />
+        <span class="modal-option">Register</span>
+        <button class="modal-btn">Login</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

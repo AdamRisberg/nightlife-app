@@ -4,7 +4,7 @@
   "description": "Schedule attendance at local bars and view how many others are planning on attending.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,18 @@
   "homepage": "https://github.com/myniztan/nightlife-app#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "bcrypt": "^2.0.0",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^5.0.1",
+    "ejs": "^2.5.8",
     "express": "^4.16.3",
-    "mongoose": "^5.0.14"
-  }
+    "express-session": "^1.15.6",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.0.14",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "validator": "^9.4.1"
+  },
+  "devDependencies": {}
 }

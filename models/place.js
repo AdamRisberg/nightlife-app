@@ -7,7 +7,6 @@ var PlaceSchema = new Schema({
     required: true,
     unique: true
   },
-  name: String,
   going: [ String ]
 });
 

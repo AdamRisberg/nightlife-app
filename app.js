@@ -1,21 +1,35 @@
 var express = require("express");
 var app = express();
-var port = process.env.PORT || 3000;
-var apiKey = "fdEZJHefPH08xt-EYVEsTsBnzject5mS269InVYU9jxo7CKyTMtfmo9Ky--O3YBr5ul80KD1-o42vv-27hp_tLOc_Ayn-E9xbkRcET8V7ctzcCoI2rfR6zK7Q1WzWnYx";
-var axios = require("axios");
 var mongoose = require("mongoose");
+var bodyParser = require("body-parser");
+var passport = require("passport");
+require("./auth/passport")(passport);
+
+if(process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 mongoose.Promise = global.Promise;
+mongoose.connect(process.env.DB_STRING);
 
-//mongoose.connect("mongodb://localhost/nightlife");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(require("express-session")({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
 
-app.use("/users", require("./routes/user"));
-app.use("/place", require("./routes/place"));
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.get("/", function(req, res) {
-  res.send("Index Page");
-});
+app.use(express.static("public"));
 
-app.listen(port, function() {
-  console.log("Listening on port: " + port);
+app.use("/", require("./routes/index"));
+app.use("/places", require("./routes/place"));
+
+app.set("view engine", "ejs");
+
+app.listen(process.env.PORT, function() {
+  console.log("Listening on port: " + process.env.PORT);
 });
