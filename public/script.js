@@ -168,6 +168,7 @@
         }
         toggleGreeting();
         toggleNavState();
+        dom.searchBtn.disabled = false;
       });
   }
 
@@ -248,8 +249,6 @@
     });
 
     dom.placesDiv.appendChild(fragment);
-
-    dom.searchBtn.disabled = false;
   }
 
   function createImage(image) {
