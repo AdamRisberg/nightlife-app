@@ -27,7 +27,6 @@ html {
   background-image: linear-gradient(RGBA(0,0,0,.7), RGBA(0,0,0,.7)), url("https://images.pexels.com/photos/248427/pexels-photo-248427.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
   background-position: top;
-  border-top: 60px solid transparent;
   position: fixed;
   top: 0;
   left: -16px;
@@ -40,11 +39,7 @@ html {
 /* Header */
 
 header {
-  /* margin-bottom: 20px;
-  background-color: #1c1c1c;
-  border-bottom: 2px solid #444; */
   margin-bottom: 20px;
-  background-color: RGBA(0, 0, 0, 0.8);
 }
 
 .header-content {
