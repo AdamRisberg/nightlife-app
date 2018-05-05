@@ -9,7 +9,7 @@ function get(req, res) {
   axios.get("https://api.yelp.com/v3/businesses/search", {
     params: {
       location: location,
-      categories: "nightlife"
+      term: "bars"
     },
     headers: {
       Authorization: "Bearer " + process.env.API_KEY
